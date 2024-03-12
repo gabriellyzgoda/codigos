@@ -11,8 +11,8 @@
     }
     .fundo{
         width: 100%;
-        height:641px;
-        background-image: url("fut.jpg");
+        height:953px;
+        background-image: url("fundo.jfif");
         background-size: cover;
         background-repeat: no-repeat;
     }
@@ -37,8 +37,37 @@
 <div class="fut">
     
         <?php
+			
+        $hostname = "127.0.0.1";
+        $user = "root";
+        $password = "";
+        $database = "alunos";
+    
+        $conexao = new mysqli($hostname, $user, $password, $database);
+
+        if ($conexao -> connect_errno) {
+            echo "Failed to connect to MySQL: " . $conexao -> connect_error;
+            exit();
+        } else {
+            // Evita caracteres especiais (SQL Inject)
+            $nome = $conexao -> real_escape_string($_POST['nome']);
+            $tecnico = $conexao -> real_escape_string($_POST['tecnico']);
+            $cidade = $conexao -> real_escape_string($_POST['cidade']);
+
+            $sql="INSERT INTO `cadastro`
+                        (`nome`, `tecnico`, `cidade`)
+                    VALUES
+                        ('".$nome."', '".$tecnico."', '".$cidade."')";
+
+            $resultado = $conexao->query($sql);
+            
+            $conexao -> close();
+            echo 'Cadastrado com sucesso.';
+            echo '<a href="futebol.php">Voltar</a>';
+            exit();
+        }
         ?>
-<a href= "futebol.php">Voltar</a>
+<a href= "futebol.php">Voltar para o cadastro de time</a>
 </div>
 </div>
 </center>
