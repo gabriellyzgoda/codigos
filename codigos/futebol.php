@@ -11,8 +11,8 @@
     }
     .fundo{
         width: 100%;
-        height:641px;
-        background-image: url("fut.jpg");
+        height:953px;
+        background-image: url("fundo.jfif");
         background-size: cover;
         background-repeat: no-repeat;
     }
@@ -20,7 +20,7 @@
     background-color:#B0C4DE;
     border:solid 2px #6A5ACD;
     border-radius:10px;
-    width:25%;
+    width:415px;
     height:32px;
     }
     .btnBusca{
@@ -58,6 +58,8 @@
         font-weight:bold;
         border-radius:0 3px 3px 0;
         background:#6A5ACD;  
+        color: white;
+        top: 50%;
     }
 </style>
 <body>
@@ -65,13 +67,21 @@
 <center>
     <br>
     <br>
+    <br>
+    <br>
 <div class="pesquisa">
-<form method="post" action="processamento.php" id="formlogin" name="formlogin" >
-    <input type="text" class="txtBusca" placeholder="Pesquise o que precisa:"/>
+<form method="post" action="processamento2.php" id="formlogin" name="formlogin" >
+    <input type="text" class="txtBusca" placeholder="Pesquise o que precisa:" name="nome"/>
     <button class="btnBusca">Buscar</button>
     <br>
 </form>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
@@ -95,8 +105,9 @@
     <br>
     <br>
 	</form>
-        <?php
-        ?>
+    <a href= "index.php">Página do cadastro</a>
+    <br>
+    <br>
 </div>
 </div>
 </center>
